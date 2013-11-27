@@ -7,7 +7,7 @@ void setup() {
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Raindrop();
   }
-c= new Catcher();
+  c= new Catcher();
 }
 
 
@@ -18,7 +18,10 @@ void draw() {
     drops[i].display();
     drops[i].drop();
     drops[i].restart();
-  }
+ drops[i].collect(c); 
+}
   c.display();
   c.reset();
+
 }
+

@@ -2,6 +2,7 @@ class Raindrop {
   PVector loc;
   PVector vel;
   PVector acc;
+  int d=5;
 
   Raindrop() {
     loc= new PVector(random(width), 0);
@@ -11,7 +12,7 @@ class Raindrop {
 
   void display() {
 fill(0,150,200);
-    ellipse(loc.x, loc.y,5,5);
+    ellipse(loc.x, loc.y,d,d);
   }
   void drop() {
     loc.add(vel);
@@ -22,6 +23,12 @@ fill(0,150,200);
       loc.y=0;
       loc.x=random(width);
     }
+  }
+  void collect(Catcher c) {
+    if(dist(loc.x,loc.y,c.loc.x,c.loc.y) < c.d/2+d/2 ){
+      loc.y=0;
+      loc.x=random(width);
+}
   }
 }
 
