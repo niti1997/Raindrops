@@ -3,38 +3,38 @@
 
 /*
 Raindrop[] drops = new Raindrop[50];
-Catcher c;
-void setup() {
-
-  size(500, 500);
-
-  for (int i = 0; i < drops.length; i++) {
-    drops[i] = new Raindrop();
-  }
-  c= new Catcher();
-}
-
-
-void draw() {
-
-  background(0);
-  for (int i = 0; i < drops.length; i++) {
-    drops[i].display();
-    drops[i].drop();
-    drops[i].restart();
+ Catcher c;
+ void setup() {
+ 
+ size(500, 500);
+ 
+ for (int i = 0; i < drops.length; i++) {
+ drops[i] = new Raindrop();
+ }
+ c= new Catcher();
+ }
+ 
+ 
+ void draw() {
+ 
+ background(0);
+ for (int i = 0; i < drops.length; i++) {
+ drops[i].display();
+ drops[i].drop();
+ drops[i].restart();
  drops[i].collect(c); 
-}
-  c.display();
-  c.reset();
-
-}
-*/
+ }
+ c.display();
+ c.reset();
+ 
+ }
+ */
 
 
 
 //NEW CODE WITH TIMER AND SCOREAND RAINDROPS COMING IN ONE AFTER ANOTHER
 Catcher c;
-color  col;
+
 int speed= 1000;
 int OldTime=0;
 int index = 1;   
@@ -47,7 +47,6 @@ void setup() {
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Raindrop();
   }
-
 }
 
 void draw() {
@@ -60,10 +59,10 @@ void draw() {
     drops[i].display();
     drops[i].drop();
     drops[i].collect(c);
-    
-   
-  
+  }
+  c.display();
+  c.reset();
+  c.score();
+
 }
-c.display();
-c.reset();
-}
+
