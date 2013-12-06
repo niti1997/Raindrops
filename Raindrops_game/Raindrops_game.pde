@@ -40,6 +40,7 @@ int OldTime=0;
 int index = 1;   
 Raindrop[] drops = new Raindrop[500];
 
+
 void setup() {
   size(500, 500);
   c=new Catcher();
@@ -50,6 +51,8 @@ void setup() {
 }
 
 void draw() {
+  
+  
   background(100, 200, 255);
   if (millis()-OldTime >= speed) {
     index++;
@@ -63,6 +66,6 @@ void draw() {
   c.display();
   c.reset();
   c.score();
-
+  
 }
 
