@@ -25,7 +25,9 @@ class Raindrop {
     }
   }
   void collect(Catcher c) {
+    text(score, 30, 30);
     if (dist(loc.x, loc.y, c.loc.x, c.loc.y) < c.d/2+d/2 ) {
+      score++;
       loc.y=0;
       loc.x=random(width);
     }
