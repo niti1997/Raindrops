@@ -39,29 +39,33 @@ int speed= 1000;//control the rate at which the raindrops fall down
 int OldTime=0;//what it starts with
 int index = 1;//controls the number of raindrops that fall    
 Raindrop[] drops = new Raindrop[500];
-int score;
+int score,missedscore;
 boolean run;
-boolean gameover;
+PImage bg;
+
 
 void setup() {
-  size(500, 500);
+   bg=loadImage("bg.jpg");
+
+  size(bg.width, bg.height);
   c=new Catcher();
 
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Raindrop();
   }
   run=false;
-  gameover=false;
+  
 }
 
 void draw() {
-  background(100, 200, 255);
+  background(bg);
   if (run==false) { 
-    fill(255);
-    rect(50, 50, 100, 100);
     fill(0);
+    rect(50, 50, 100, 100);
+    fill(255);
     textSize(20);
-    text("Start", 70, 70);
+    text("Start",80, 100);
+    
   }
 
 
@@ -70,22 +74,22 @@ void draw() {
       drops[i].display();
       drops[i].drop();
       drops[i].collect(c);
-    }
+      drops[i].restart();
+
+  }
     c.display();
     c.reset();
+    
     if (millis()-OldTime >= speed) {//if the num.of millis - 0 is >= the rate at which the drops fall 
       index++;//index increases, so more raindrops fall
       OldTime=millis();//resets it back so that one drop falls at a time ...otherwise they all fall together
     }
-  }
-  if (gameover==true) {
     fill(255);
-    rect(300,300,100,100);
-    fill(0);
     textSize(20);
-    text("Stop",350,70);
-    //ADD THAT IF CATCHERS DONT CATCH THEN GAME OVER
-}
+    text("Catches",50,100);
+    text("Losses",400,100);
+  }
+  
 }
 
 void mousePressed() {
@@ -95,11 +99,7 @@ void mousePressed() {
   if (mouseX>150 && mouseX<50 && mouseY>150 && mouseY<50) {
     run=false;
   }
-  if (mouseX>300 && mouseX<400 && mouseY>300 && mouseY<400){
-    run=true;
+ 
   }
-  if (mouseX<300 && mouseX>400 && mouseY<300 && mouseY>400) {
-    run=false;
-  }
-}
+
 
