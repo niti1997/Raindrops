@@ -60,10 +60,10 @@ void setup() {
 void draw() {
   background(bg);
   if (run==false) { 
-    fill(0);
-    rect(50, 50, 100, 100);
+    
+    //rect(50, 50, 100, 100); THIS RECTANGLE IS JUST FOR KNOWING THE DIMENSIONS FOR VOID MOUSEPRESSED, its like an invisible rect.
     fill(255);
-    textSize(20);
+    textSize(30);
     text("Start",80, 100);
     
   }
