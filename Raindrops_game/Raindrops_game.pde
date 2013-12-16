@@ -1,45 +1,12 @@
 
-//OLD CODE WHEN ALL THE RAINDROPS CAME IN TOGETHER
-
-/*
-Raindrop[] drops = new Raindrop[50];
- Catcher c;
- void setup() {
- 
- size(500, 500);
- 
- for (int i = 0; i < drops.length; i++) {
- drops[i] = new Raindrop();
- }
- c= new Catcher();
- }
- 
- 
- void draw() {
- 
- background(0);
- for (int i = 0; i < drops.length; i++) {
- drops[i].display();
- drops[i].drop();
- drops[i].restart();
- drops[i].collect(c); 
- }
- c.display();
- c.reset();
- 
- }
- */
-
-
-
-//NEW CODE WITH TIMER AND SCOREAND RAINDROPS COMING IN ONE AFTER ANOTHER
 Catcher c;
 
 int speed= 1000;//control the rate at which the raindrops fall down
 int OldTime=0;//what it starts with
 int index = 1;//controls the number of raindrops that fall    
 Raindrop[] drops = new Raindrop[500];
-int score,missedscore;
+int score,missedscore,setscore;
+int lives = 3;
 boolean run;
 PImage bg;
 
@@ -87,7 +54,7 @@ void draw() {
     fill(255);
     textSize(20);
     text("Catches",50,100);
-    text("Losses",400,100);
+    
   }
   
 }
@@ -100,6 +67,12 @@ void mousePressed() {
     run=false;
   }
  
+  }
+  void keyPressed() {
+    if (key == 'r') {
+      run = false;
+     missedscore = 0; 
+    }
   }
 
 
