@@ -4,8 +4,8 @@ class Raindrop {
   PVector acc;
   int d=5;
   PImage RD;
-  float wscale=.01;
-  float hscale=.04;
+  float wscale=.01;//scaling the width of the raindrops
+  float hscale=.04;//scaling the height of the raindrops
 
   Raindrop() {
     loc= new PVector(random(width), 0);
@@ -15,8 +15,6 @@ class Raindrop {
   }
 
   void display() {//shows the drops
-
-
     image(RD, loc.x, loc.y, width*wscale, height*hscale);
   }
   void drop() {
@@ -29,33 +27,27 @@ class Raindrop {
     text("Missed", 400, 100);
     textSize(50);
     text(missedscore, 400, 50);
-    if (loc.y>height) {
+    if (loc.y>height) {//if raindrops go off the screen then missed score increases and raindrops go back up
       missedscore++;
       loc.y=0;
       loc.x=random(width);
-      if ( missedscore % 20 == 0 && missedscore != 0) {
-
-
-        lives--;
-        missedscore= 0;
-      
-    }
+      if ( missedscore % 20 == 0 && missedscore != 0) {//every 20 raindrops that you miss.......
+        lives--;//you lose a life
+        missedscore= 0;//missed score back to 0 and you get another chance upto 3 chances.
+      }
     }
 
-        if ( lives ==  0) {
-          loc.y=-height;
-          vel.y=0;
-          acc.y=0;
+    if ( lives ==  0) {//if you lose all lives, raindrops stop falling and game is over. 
+      loc.y=-height;
+      vel.y=0;
+      acc.y=0;
+      fill(255);
+      textAlign(CENTER);
+      textSize(50); 
+      text("Game Over", width/2+40, height/3);
+    }
 
 
-
-          fill(255);
-          textAlign(CENTER);
-          textSize(50); 
-          text("Game Over", width/2+40, height/3);
-        }
-      
-    
     textSize(20);
     text("Lives", 700, 100);
     textSize(50);
