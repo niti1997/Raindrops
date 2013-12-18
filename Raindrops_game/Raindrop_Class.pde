@@ -31,7 +31,7 @@ class Raindrop {
       missedscore++;
       loc.y=0;
       loc.x=random(width);
-      if ( missedscore % 20 == 0 && missedscore != 0) {//every 20 raindrops that you miss.......
+      if ( missedscore % 30 == 0 && missedscore != 0) {//every 20 raindrops that you miss.......
         lives--;//you lose a life
         missedscore= 0;//missed score back to 0 and you get another chance upto 3 chances.
       }

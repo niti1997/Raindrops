@@ -62,6 +62,8 @@ void keyPressed() { //if you press r, the game stops running and missed score go
   if (key == 'r') {
     run = false;
     missedscore = 0;
+    lives= 3;
+    score=0;
   }
 }
 
