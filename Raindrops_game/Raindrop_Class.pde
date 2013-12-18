@@ -21,7 +21,7 @@ class Raindrop {
     loc.add(vel);//velocity increases
     vel.add(acc);//acceleration
   }
-  void restart() {//keeps score of what is happpening with lives and losses
+  void restart() {//keeps score of what is happpening with lives and losses//PUT THIS IN THE MAIN CODE
     fill(255);
     textSize(20);
     text("Missed", 400, 100);
@@ -31,7 +31,7 @@ class Raindrop {
       missedscore++;
       loc.y=0;
       loc.x=random(width);
-      if ( missedscore % 30 == 0 && missedscore != 0) {//every 20 raindrops that you miss.......
+      if ( missedscore % 20 == 0 && missedscore != 0) {//every 20 raindrops that you miss.......
         lives--;//you lose a life
         missedscore= 0;//missed score back to 0 and you get another chance upto 3 chances.
       }
@@ -41,11 +41,13 @@ class Raindrop {
       loc.y=-height;
       vel.y=0;
       acc.y=0;
+
       fill(255);
       textAlign(CENTER);
       textSize(50); 
       text("Game Over", width/2+40, height/3);
     }
+
 
 
     textSize(20);
@@ -60,6 +62,9 @@ class Raindrop {
     text(score, 50, 50);
     if (dist(loc.x, loc.y, c.loc.x, c.loc.y) < c.d/2+d/2 ) {//if the dist between raindrop and the catcher is < catcher's radius and the raindrop's radius
       score++; //score increases
+      if (score % 10 == 0) {
+        lives++;
+      }
       loc.y=0; //goes back to the top
       loc.x=random(width);//and falls from a random place between 0 and width
     }
