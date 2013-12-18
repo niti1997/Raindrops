@@ -33,11 +33,13 @@ class Raindrop {
       missedscore++;
       loc.y=0;
       loc.x=random(width);
-      if ( missedscore % 10 == 0 && missedscore != 0) {
+      if ( missedscore % 20 == 0 && missedscore != 0) {
 
 
         lives--;
-      }
+        missedscore= 0;
+      
+    }
     }
 
         if ( lives ==  0) {
