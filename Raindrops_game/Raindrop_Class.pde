@@ -21,7 +21,7 @@ class Raindrop {
     loc.add(vel);//velocity increases
     vel.add(acc);//acceleration
   }
-  void restart() {//keeps score of what is happpening with lives and losses//PUT THIS IN THE MAIN CODE
+  void score() {//keeps score of what is happpening with lives and losses//PUT THIS IN THE MAIN CODE
     fill(255);
     textSize(20);
     text("Missed", 400, 100);

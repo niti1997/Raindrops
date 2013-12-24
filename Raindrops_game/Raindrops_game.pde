@@ -35,7 +35,7 @@ void draw() {
       drops[i].display();
       drops[i].drop();
       drops[i].collect(c);
-      drops[i].restart();
+      drops[i].score();
     }
     c.display();
     c.reset();
@@ -47,6 +47,11 @@ void draw() {
     fill(255);
     textSize(20);
     text("Catches", 50, 100);
+    textSize(20);
+    text("Lives", 700, 100);
+    textSize(50);
+
+    text(lives, 700, 50);
   }
 }
 
